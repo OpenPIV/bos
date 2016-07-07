@@ -37,4 +37,16 @@ Poisson solvers were tested, using public domain Matlab codes. The authors of th
 
 ### How to cite this work: 
 
-Verso, L. and Liberzon, A. "Background Oriented Schlieren in a Density Stratified Fluid", <http://arxiv.org/abs/1506.08889>
+Verso, L. and Liberzon, A. "Background Oriented Schlieren in a Density Stratified Fluid", Rev. Sci. Instrum. 86, 103705 (2015)
+ 
+@article{Verso:2015,  
+   author = "Verso, Lilly and Liberzon, Alex",  
+   title = "Background oriented schlieren in a density stratified fluid",  
+   journal = "Review of Scientific Instruments",  
+   year = "2015",  
+   volume = "86",  
+   number = "10",   
+   eid = 103705,  
+   url = "http://scitation.aip.org/content/aip/journal/rsi/86/10/10.1063/1.4934576",    
+   doi = "http://dx.doi.org/10.1063/1.4934576" 
+}
