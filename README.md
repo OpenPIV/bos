@@ -33,6 +33,7 @@ Poisson solvers were tested, using public domain Matlab codes. The authors of th
 2. OpenPIV-Pressure http://www.openpiv.net/openpiv-pressure/
 3. IMWRAP - <https://github.com/animesh-garg/videoSeg/blob/master/src/classic_NL_Code/utils/imwarp.m>  under <https://github.com/animesh-garg/videoSeg> 
 4. 2D Poisson equation - <http://www.mathworks.com/matlabcentral/fileexchange/38090-2d-poisson-equation/content/Poisson_equation_2D.m>
+5. Create BOS pattern - <http://www.fast.u-psud.fr/~moisy/ml/misc/makebospattern.m> by Federic Moisy 
 
 
 ### How to cite this work: 
