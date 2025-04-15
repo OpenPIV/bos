@@ -7,6 +7,7 @@ from openpiv_python.read_pair_of_images_rect import read_pair_of_images_rect
 from openpiv_python.sub_pixel_velocity_rect import sub_pixel_velocity_rect
 from openpiv_python.write_openpiv_vec import write_openpiv_vec
 from openpiv_python.tiffread import tiffread
+from openpiv_python.openpiv import openpiv
 
 __all__ = [
     'cross_correlate_rect',
@@ -17,5 +18,6 @@ __all__ = [
     'read_pair_of_images_rect',
     'sub_pixel_velocity_rect',
     'write_openpiv_vec',
-    'tiffread'
+    'tiffread',
+    'openpiv'
 ]

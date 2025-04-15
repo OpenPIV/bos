@@ -3,7 +3,7 @@ import numpy as np
 def sub_pixel_velocity_rect(c, pixi, pixj, peak1, peak2, s2nl, ittWidth, ittHeight):
     """
     Calculate Signal-To-Noise Ratio, fit Gaussian bell, find sub-pixel displacement
-    
+
     Parameters:
     -----------
     c : ndarray
@@ -22,7 +22,7 @@ def sub_pixel_velocity_rect(c, pixi, pixj, peak1, peak2, s2nl, ittWidth, ittHeig
         Width of the interrogation window
     ittHeight : int
         Height of the interrogation window
-        
+
     Returns:
     --------
     peakx : float
@@ -31,7 +31,7 @@ def sub_pixel_velocity_rect(c, pixi, pixj, peak1, peak2, s2nl, ittWidth, ittHeig
         Sub-pixel column position of the peak
     s2n : float
         Signal-to-noise ratio
-        
+
     Notes:
     ------
     Original MATLAB implementation by Alex Liberzon & Roi Gurka
@@ -43,7 +43,7 @@ def sub_pixel_velocity_rect(c, pixi, pixj, peak1, peak2, s2nl, ittWidth, ittHeig
         s2n = float('inf')  # Just to protect from zero dividing
     else:
         s2n = peak1 / peak2
-    
+
     # If Signal-To-Noise ratio is lower than the limit, "mark" it
     if s2n < s2nl:
         peakx = ittHeight
@@ -54,26 +54,34 @@ def sub_pixel_velocity_rect(c, pixi, pixj, peak1, peak2, s2nl, ittWidth, ittHeig
             peakx = ittHeight
             peaky = ittWidth
             return peakx, peaky, s2n
-        
+
         try:
             # Fit Gaussian in x-direction
-            f0 = np.log(c[pixi, pixj])
-            f1 = np.log(c[pixi-1, pixj])
-            f2 = np.log(c[pixi+1, pixj])
-            peakx = pixi + (f1 - f2) / (2 * f1 - 4 * f0 + 2 * f2)
-            
+            f0 = np.log(max(1e-10, c[pixi, pixj]))
+            f1 = np.log(max(1e-10, c[pixi-1, pixj]))
+            f2 = np.log(max(1e-10, c[pixi+1, pixj]))
+            denom = 2 * f1 - 4 * f0 + 2 * f2
+            if abs(denom) > 1e-10:
+                peakx = pixi + (f1 - f2) / denom
+            else:
+                peakx = pixi
+
             # Fit Gaussian in y-direction
-            f0 = np.log(c[pixi, pixj])
-            f1 = np.log(c[pixi, pixj-1])
-            f2 = np.log(c[pixi, pixj+1])
-            peaky = pixj + (f1 - f2) / (2 * f1 - 4 * f0 + 2 * f2)
+            f0 = np.log(max(1e-10, c[pixi, pixj]))
+            f1 = np.log(max(1e-10, c[pixi, pixj-1]))
+            f2 = np.log(max(1e-10, c[pixi, pixj+1]))
+            denom = 2 * f1 - 4 * f0 + 2 * f2
+            if abs(denom) > 1e-10:
+                peaky = pixj + (f1 - f2) / denom
+            else:
+                peaky = pixj
         except:
             peakx = ittHeight
             peaky = ittWidth
-        
+
         # Check if the result is real (not complex)
         if not np.isreal(peakx) or not np.isreal(peaky):
             peakx = ittHeight
             peaky = ittWidth
-    
+
     return peakx, peaky, s2n
