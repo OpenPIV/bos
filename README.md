@@ -41,17 +41,20 @@ This repository now includes Python translations of the original MATLAB code. Th
 - `imwarp.py` - Warps image with flow field
 - `parameters.py` - Parameters for BOS processing
 - `gladstone_dale.py` - Applies Gladstone-Dale relation
+- `poisson_direct_mod.py` - Alternative Poisson solver using direct method
+- `openpiv_bos_demo.py` - Demo script for BOS processing
 - And more utility functions...
 
 **OpenPIV Python Package:**
 - `openpiv_python/cross_correlate_rect.py` - Cross-correlates two rectangular interrogation windows
 - `openpiv_python/fill_holes.py` - Fills holes in vector fields
 - `openpiv_python/find_displacement_rect.py` - Finds displacement from correlation matrix
-- `openpiv_python/inpaint_nans.py` - Interpolates NaN values in arrays
+- `openpiv_python/inpaint_nans_simple.py` - Interpolates NaN values in arrays
 - `openpiv_python/plotarrow.py` - Plots arrows with heads
 - `openpiv_python/read_pair_of_images_rect.py` - Reads and crops image pairs
 - `openpiv_python/sub_pixel_velocity_rect.py` - Calculates sub-pixel displacements
 - `openpiv_python/write_openpiv_vec.py` - Writes vector data to VEC files
+- `openpiv_python/tiffread.py` - Reads TIFF files, including stacks
 
 **Poisson Test Python Package:**
 - `poisson_test_python/fd2poisson.py` - Finite difference solution to Poisson equation
