@@ -33,6 +33,7 @@ This repository now includes Python translations of the original MATLAB code. Th
 
 #### Python Files
 
+**Main Files:**
 - `BOS_MAIN_ROUTINE.py` - Main script for BOS processing
 - `bos_poisson_solver.py` - Solves the Poisson equation for BOS
 - `bos_remapping.py` - Remaps images according to displacement field
@@ -41,6 +42,20 @@ This repository now includes Python translations of the original MATLAB code. Th
 - `parameters.py` - Parameters for BOS processing
 - `gladstone_dale.py` - Applies Gladstone-Dale relation
 - And more utility functions...
+
+**OpenPIV Python Package:**
+- `openpiv_python/cross_correlate_rect.py` - Cross-correlates two rectangular interrogation windows
+- `openpiv_python/fill_holes.py` - Fills holes in vector fields
+- `openpiv_python/find_displacement_rect.py` - Finds displacement from correlation matrix
+- `openpiv_python/inpaint_nans.py` - Interpolates NaN values in arrays
+- `openpiv_python/plotarrow.py` - Plots arrows with heads
+- `openpiv_python/read_pair_of_images_rect.py` - Reads and crops image pairs
+- `openpiv_python/sub_pixel_velocity_rect.py` - Calculates sub-pixel displacements
+- `openpiv_python/write_openpiv_vec.py` - Writes vector data to VEC files
+
+**Poisson Test Python Package:**
+- `poisson_test_python/fd2poisson.py` - Finite difference solution to Poisson equation
+- `poisson_test_python/jacobi.py` - Jacobi iteration method for Poisson equation
 
 #### Testing
 
@@ -56,6 +71,7 @@ Test scripts are provided to verify that the Python translations produce the sam
 - SciPy
 - Matplotlib
 - Pillow (PIL)
+- OpenCV (cv2)
 - MATLAB (for comparison tests only)
 
 ### MATLAB Dependencies

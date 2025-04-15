@@ -27,16 +27,11 @@ def scaledata(datain, minval, maxval):
 
     Original author: Aniruddha Kembhavi, July 11, 2007
     """
-    # Flatten the array for min/max operations
-    datain_flat = datain.flatten()
-
-    # Calculate range of input data
-    def range_func(x):
-        return np.max(x) - np.min(x)
+    # Get min and max values
+    datamax = np.max(datain)
+    datamin = np.min(datain)
 
     # Scale data exactly as in MATLAB version
-    dataout = datain - np.min(datain_flat)
-    dataout = (dataout / range_func(datain_flat)) * (maxval - minval)
-    dataout = dataout + minval
+    dataout = (datain - datamin) / (datamax - datamin) * (maxval - minval) + minval
 
     return dataout
